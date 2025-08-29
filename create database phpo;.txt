@@ -1,0 +1,10 @@
+create database phpo;
+use phpo;
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    telefone VARCHAR(20)
+);
+
+select*from users
