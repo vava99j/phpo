@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cadastrar(){
+            var cpf = document.getElementById("cpf").value;
+            var nome = document.getElementById("nome").value;
+            var telefone = document.getElementById("telefone").value;
+            const requisiçao = new XMLHttpRequest();
+            requisiçao.open("GET", "controllerPessoa.php?cpf="+cpf+"&nome="+nome+"&telefone="+telefone+"&senha=1234&op=cadastrar"); 
+            requisiçao.send();
+            requisiçao.onload = function(){
+                document.getElementById("resultado").innerHTML = this.responseText;
+            }
+           
+        }
+    </script>
+</head>
+<body>
+    <p>nome: <input type="text" id="nome"></p>
+    <p>cpf: <input type="text" id="cpf"></p>
+    <p>telefone: <input type="text" id="telefone"></p>
+    <p><button onclick="cadastrar()">cadastrar</button></p>
+    <p id="resultado"></p>
+    
+    
+</body>
+</html>
